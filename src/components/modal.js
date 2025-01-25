@@ -167,8 +167,9 @@ const Modal = ({ isOpen, onClose, filePath }) => {
 
   return (
     <div className="modal-overlay">
-      <button onClick={onClose} className="close-btn">X</button>
+      
       <div className="modal-content">
+      <button onClick={onClose} className="close-btn">X</button>
         <div className="main-content">
           <div className="file-content">
             <div
