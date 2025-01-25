@@ -52,14 +52,14 @@ const Reports = () => {
         {/* Content */}
         <main className="content">
           <h2 className="title">Reports</h2>
-          <p className="description">You can try a Sample report by clicking here</p>
+          <p className="description">Manage and view your reports here.</p>
 
           {/* Cards Section */}
           <div className="cards-container">
             {/* Sample Report Card */}
             <div className="card" onClick={handleSampleReportClick}>
               <h3 className="card-title">Sample Report</h3>
-              <p className="card-description">This is a sample report card with details.</p>
+              <p className="card-description">This is a sample report to edit.</p>
             </div>
 
             {/* Add New Report Card */}
