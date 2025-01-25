@@ -16,18 +16,20 @@
 /* Modal content styling */
 .modal-content {
   background-color: #ffffff; /* White background for the content */
-  padding: 30px;
+  padding: 5px;
   border-radius: 12px; /* Rounded corners for a softer look */
   width: 80%;
-  max-width: 900px;
+  max-width: 950px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
   position: relative;
   overflow-y: auto;
-  max-height: 80vh;
+  max-height: 90vh;
 }
+
 
 /* Close button */
 .close-btn {

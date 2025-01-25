@@ -113,12 +113,7 @@ const Sidebar = () => {
                 <span className="nav-text">Reports</span>
               </a>
             </li>
-            <li>
-              <a href="/settings" className="nav-item">
-                <Settings className="nav-icon" />
-                <span className="nav-text">Settings</span>
-              </a>
-            </li>
+            
             <li>
               <a href="/profile" className="nav-item">
                 <User className="nav-icon" />

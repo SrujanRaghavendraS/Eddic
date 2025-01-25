@@ -9,11 +9,14 @@ const Reports = () => {
   const [filePath, setFilePath] = useState('');
 
   const handleSampleReportClick = () => {
-    // Pass a predefined path when the first card is clicked
-    const predefinedPath = '/path/to/sample/report.dcm'; // Change this to your actual path
-    setFilePath(predefinedPath);
-    setIsModalOpen(true);
+    // Correct file path for public folder
+    const predefinedPath = '/Vida_Knee.MR.Comp_DR-Gain_DR.1005.1.2021.04.27.14.44.20.58.57125557.dcm'; // Assuming the file is in the public folder
+  
+    // Set the file path and open the modal
+    setFilePath(predefinedPath);  // Set the path of the sample report
+    setIsModalOpen(true);  // Open the modal
   };
+  
 
   const handleAddReportClick = () => {
     // Open file explorer when the "Add New Report" card is clicked

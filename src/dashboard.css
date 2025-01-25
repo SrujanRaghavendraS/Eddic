@@ -1,94 +1,135 @@
-/* Overall dashboard container */
+/* Dashboard Container */
 .dashboard-container {
   display: flex;
-  height: 100vh;
-  width: 100%;
-  overflow: auto;
-}
-.sidebar {
-  background-color: #1e3a8a; /* Blue background */
-  color: white;
-  height: 100%;
-  width: 250px; /* Default width for large screens */
-  position: fixed; /* Fixed position for sidebar */
-  top: 0;
-  left: 0;
-  transition: transform 0.3s ease-in-out;
-  z-index: 1000; /* Keep the sidebar on top */
-  display: flex;
-  flex-direction: column;
 }
 
-/* Main content area */
+/* Sidebar Container */
+.sidebar-container {
+  width: 250px;
+}
+
+
+/* Main Content */
 .main-content {
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #f5f5f5;
-  padding-left: 250px; /* Default padding when sidebar is not collapsed */
-  transition: padding-left 0.3s ease;
+  width: calc(100% - 250px); /* Adjust width when sidebar is visible */
+  transition: width 0.3s ease; /* Smooth transition for sidebar collapse */
+  padding-left: 20px; /* Add space on left when sidebar is collapsed */
 }
 
-/* Content section */
+/* Content Section */
 .content {
-  padding: 20px;
-  background-color: #f5f5f5;
-  flex-grow: 1;
+  flex: 1;
+  background: #ffffff;
   border-radius: 10px;
-  margin: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding-left: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Scrollable content area */
 }
 
-/* Title and Description Styles */
+/* Titles and Text */
 .title {
-  font-size: 2rem;
+  font-size: 24px;
+  font-weight: bold;
+  color: #34495e;
   margin-bottom: 10px;
 }
 
 .description {
-  font-size: 1.125rem;
-  color: #4b5563;
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-bottom: 20px;
 }
 
-/* Navbar styles */
-.navbar {
+/* Sections */
+.features-section,
+.objective-section {
+  margin-top: 20px;
+}
+
+.section-title {
+  font-size: 20px;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+/* Feature List */
+.features-list {
+  list-style-type: disc;
+  margin-left: 20px;
+  color: #2c3e50;
+}
+
+.features-list li {
+  margin-bottom: 8px;
+}
+
+/* Objective Description */
+.objective-description {
+  font-size: 16px;
+  color: #7f8c8d;
+  line-height: 1.5;
+}
+
+/* Cards Container */
+.cards-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
   background-color: #2563eb;
   color: white;
-  padding: 10px;
-  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-logo span {
-  font-size: 1.5rem;
+.card-title {
+  font-size: 18px;
   font-weight: bold;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 1024px) {
-  .sidebar {
-    width: 60px; /* Adjust sidebar width when collapsed */
-  }
-  .main-content {
-    padding-left: 60px; /* Adjust padding when sidebar collapses */
-  }
+.card-description {
+  font-size: 14px;
 }
 
-@media screen and (max-width: 768px) {
-  .main-content {
-    padding-left: 60px;
-  }
-  .content {
-    padding: 10px;
-    margin: 6px;
-  }
+/* Add Card */
+.add-card {
+  background-color: #4CAF50; /* Green background for Add card */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-@media screen and (max-width: 480px) {
-  .main-content {
-    padding-left: 50px;
+.add-sign {
+  font-size: 40px;
+  color: white;
+}
+
+.add-description {
+  font-size: 14px;
+  color: white;
+  margin-top: 10px;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column; /* Stack items vertically */
   }
-  .content {
-    padding: 8px;
-    margin: 4px;
+
+  .sidebar-container {
+    width: 0; /* Collapse sidebar by default */
+  }
+
+  .main-content {
+    width: 100%; /* Full width for main content */
+    padding-left: 20px; /* Add space to the left */
   }
 }

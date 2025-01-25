@@ -234,10 +234,10 @@ const Modal = ({ isOpen, onClose, filePath }) => {
             <button onClick={toggleTextMode} className="control-btn">
               <Text size={20} /> {isTextMode ? 'Stop Text' : 'Add Text'}
             </button>
-            <button onClick={() => adjustBrightness(70)} className="control-btn">
+            <button onClick={() => adjustBrightness(-70)} className="control-btn">
               <Sun size={20} /> Brightness +
             </button>
-            <button onClick={() => adjustBrightness(-70)} className="control-btn">
+            <button onClick={() => adjustBrightness(+70)} className="control-btn">
               <Moon size={20} /> Brightness -
             </button>
             <button onClick={() => adjustContrast(70)} className="control-btn">
