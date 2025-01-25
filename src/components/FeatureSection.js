@@ -53,7 +53,7 @@ const styles = {
     paddingRight: '1.5rem',
   },
   heading: {
-    fontSize: '2.25rem',
+    fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', // Responsive font size
     fontWeight: 600,
     textAlign: 'center',
     color: '#1e40af',
@@ -61,7 +61,7 @@ const styles = {
   },
   gridContainer: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',  // Set 3 equal-width columns
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', // Automatically adjust columns
     gap: '2rem',
   },
   featureCard: {
@@ -69,16 +69,18 @@ const styles = {
     padding: '2rem',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
     borderRadius: '1rem',
-    transition: 'all 0.3s ease-in-out',
+    transition: 'transform 0.3s ease-in-out',
+    textAlign: 'center', // Center content
   },
   featureTitle: {
-    fontSize: '1.5rem',
+    fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)', // Responsive font size
     fontWeight: 600,
     color: '#2563eb',
     marginBottom: '1rem',
   },
   featureDescription: {
     color: '#4b5563',
+    fontSize: 'clamp(0.875rem, 2vw, 1rem)', // Responsive font size
   },
   ctaContainer: {
     textAlign: 'center',
@@ -87,14 +89,12 @@ const styles = {
   ctaButton: {
     backgroundColor: '#fbbf24',
     color: '#1e40af',
-    paddingLeft: '2rem',
-    paddingRight: '2rem',
-    paddingTop: '1rem',
-    paddingBottom: '1rem',
-    fontSize: '1.25rem',
+    padding: '1rem 2rem',
+    fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', // Responsive font size
     borderRadius: '9999px',
     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-    transition: 'all 0.3s ease-in-out',
+    transition: 'transform 0.3s ease-in-out',
+    textDecoration: 'none',
   },
 };
 

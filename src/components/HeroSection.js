@@ -17,35 +17,34 @@ const HeroSection = () => {
 
 const styles = {
   heroSection: {
-    background: 'linear-gradient(to right, #2563eb, #1e3a8a)', 
+    background: 'linear-gradient(to right, #2563eb, #1e3a8a)',
     color: 'white',
-    paddingTop: '1rem',
-    paddingBottom: '7rem',
-    margin: 0, // Remove the margin around the section
-    width: '100%', // Ensure the section takes the full width of the screen
+    padding: '2rem 1rem', // Add padding for small screens
+    margin: 0,
+    width: '100%',
   },
   container: {
     maxWidth: '1200px',
-    margin: '0 auto', // Center the container
-    paddingLeft: '0', // Remove padding on the left
-    paddingRight: '0', // Remove padding on the right
+    margin: '0 auto',
     textAlign: 'center',
   },
   heading: {
-    fontSize: '3rem',
+    fontSize: 'clamp(2rem, 5vw, 3.5rem)', // Dynamically adjusts based on screen size
     fontWeight: 'bold',
     marginBottom: '1.5rem',
   },
   paragraph: {
-    fontSize: '1.125rem',
+    fontSize: 'clamp(1rem, 2.5vw, 1.5rem)', // Dynamically adjusts based on screen size
+    lineHeight: 1.6,
     marginBottom: '2rem',
     maxWidth: '36rem',
     marginLeft: 'auto',
     marginRight: 'auto',
+    padding: '0 1rem', // Add padding for extra small screens
   },
   highlight: {
-    color: '#f59e0b', 
-  }
+    color: '#f59e0b',
+  },
 };
 
 export default HeroSection;
