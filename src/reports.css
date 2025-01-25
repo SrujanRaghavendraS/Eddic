@@ -1,0 +1,60 @@
+.reports-container {
+    display: flex;
+  }
+  
+  .sidebar-container {
+    width: 250px;
+  }
+  
+  .main-content {
+    flex-grow: 1;
+    padding: 0px;
+  }
+  
+  .content {
+    margin-top: 20px;
+  }
+  
+  .cards-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background-color: #2563eb;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .card-description {
+    font-size: 14px;
+  }
+  
+  .add-card {
+    background-color: #4CAF50; /* Green background for Add card */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .add-sign {
+    font-size: 40px;
+    color: white;
+  }
+  
+  .add-description {
+    font-size: 14px;
+    color: white;
+    margin-top: 10px;
+  }
+  
