@@ -21,6 +21,9 @@ const Dashboard = () => {
           <p className="description">
             DICOMEditor is a cutting-edge SaaS platform for editing and managing DICOM files, designed to streamline medical imaging workflows.
           </p>
+          <p className="description">
+            Also This website can be used through a Mobile/Tab
+            </p>
           <div className="features-section">
             <h3 className="section-title">Key Features</h3>
             <ul className="features-list">

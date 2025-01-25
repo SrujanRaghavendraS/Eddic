@@ -3,7 +3,7 @@ import cornerstone from 'cornerstone-core';
 import cornerstoneWADOImageLoader from 'cornerstone-wado-image-loader';
 import dicomParser from 'dicom-parser';
 import html2canvas from 'html2canvas';
-import { Sun, Moon, ZoomIn, ZoomOut, Pencil, Circle, Text, Info, Save } from 'lucide-react'; // Changed Tool to Info
+import { Sun, Moon, ZoomIn, ZoomOut, Pencil, Circle, Text, Info, Save } from 'lucide-react';
 import './modal.css';
 
 const Modal = ({ isOpen, onClose, filePath }) => {
@@ -69,23 +69,17 @@ const Modal = ({ isOpen, onClose, filePath }) => {
     }
   };
 
-  const saveSnapshot = () => {
-    const container = elementRef.current; // Element to capture
-    html2canvas(container, { useCORS: true }).then((canvas) => {
-      const link = document.createElement('a');
-      link.href = canvas.toDataURL('image/png');
-      link.download = 'snapshot.png';
-      link.click();
-    });
-  };
+  // Unified function for handling both touch and mouse start events
+  const handleStart = (event) => {
+    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+    const clientY = event.touches ? event.touches[0].clientY : event.clientY;
 
-  const handleMouseDown = (event) => {
+    const rect = elementRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const y = clientY - rect.top;
+
     if (isTextMode) {
-      const rect = elementRef.current.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-
-      // Add the text at the clicked location
+      // Add text on touch or mouse start
       const newText = prompt("Enter your text: ");
       if (newText) {
         setTexts((prevTexts) => [
@@ -96,14 +90,20 @@ const Modal = ({ isOpen, onClose, filePath }) => {
       setIsTextMode(false); // Disable text mode after placing the text
     } else {
       setIsDrawing(true);
-      const rect = elementRef.current.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
       setStartCoords({ x, y });
     }
   };
 
-  const handleMouseUp = () => {
+  const handleMove = (event) => {
+    if (!isDrawing || !startCoords) return;
+
+    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+    const clientY = event.touches ? event.touches[0].clientY : event.clientY;
+
+    drawShape({ clientX, clientY });
+  };
+
+  const handleEnd = () => {
     setIsDrawing(false); // Reset drawing state
   };
 
@@ -153,6 +153,16 @@ const Modal = ({ isOpen, onClose, filePath }) => {
     }
   };
 
+  const saveSnapshot = () => {
+    const container = elementRef.current; // Element to capture
+    html2canvas(container, { useCORS: true }).then((canvas) => {
+      const link = document.createElement('a');
+      link.href = canvas.toDataURL('image/png');
+      link.download = 'snapshot.png';
+      link.click();
+    });
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -164,9 +174,12 @@ const Modal = ({ isOpen, onClose, filePath }) => {
             <div
               ref={elementRef}
               style={{ width: '100%', height: '400px', position: 'relative' }}
-              onMouseDown={handleMouseDown}
-              onMouseMove={drawShape}
-              onMouseUp={handleMouseUp}
+              onMouseDown={handleStart}
+              onMouseMove={handleMove}
+              onMouseUp={handleEnd}
+              onTouchStart={handleStart}
+              onTouchMove={handleMove}
+              onTouchEnd={handleEnd}
             >
               {/* Canvas overlay for annotations */}
               <canvas
@@ -257,8 +270,10 @@ const Modal = ({ isOpen, onClose, filePath }) => {
             <button onClick={showDicomMetadata} className="control-btn">
               <Info size={20} /> Show Metadata
             </button>
+
+            {/* Button to save a snapshot */}
             <button onClick={saveSnapshot} className="control-btn">
-              <Save size={20} /> Save To PNG
+              <Save size={20} /> Save Snapshot
             </button>
           </div>
         </div>

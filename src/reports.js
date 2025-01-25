@@ -52,7 +52,7 @@ const Reports = () => {
         {/* Content */}
         <main className="content">
           <h2 className="title">Reports</h2>
-          <p className="description">Manage and view your reports here.</p>
+          <p className="description">You can try a Sample report by clicking here</p>
 
           {/* Cards Section */}
           <div className="cards-container">
