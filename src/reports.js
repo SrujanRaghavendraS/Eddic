@@ -11,25 +11,32 @@ const Reports = () => {
   const handleSampleReportClick = () => {
     // Correct file path for public folder
     const predefinedPath = '/Vida_Knee.MR.Comp_DR-Gain_DR.1005.1.2021.04.27.14.44.20.58.57125557.dcm'; // Assuming the file is in the public folder
-  
+
     // Set the file path and open the modal
     setFilePath(predefinedPath);  // Set the path of the sample report
     setIsModalOpen(true);  // Open the modal
   };
-  
 
   const handleAddReportClick = () => {
-    // Open file explorer when the "Add New Report" card is clicked
     const input = document.createElement('input');
     input.type = 'file';
-    input.accept = '.dcm'; // Optional: Limit file selection to .dcm files
+    input.accept = '.dcm'; // Limit file selection to .dcm files
+
     input.onchange = (event) => {
       const file = event.target.files[0];
       if (file) {
-        setFilePath(URL.createObjectURL(file)); // Get file path for local display
-        setIsModalOpen(true);
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+
+        // Validate the file extension
+        if (fileExtension === 'dcm') {
+          setFilePath(URL.createObjectURL(file)); // Get file path for local display
+          setIsModalOpen(true);
+        } else {
+          alert('Please select a valid DICOM (.dcm) file.');
+        }
       }
     };
+
     input.click();
   };
 
