@@ -1,6 +1,6 @@
 # DICOM Editor
 
-A React.js-based project for editing and managing DICOM files. This project is designed to run in a Dockerized environment for consistency and portability.
+A React.js-based project for editing and managing DICOM files. This project is designed to run in a Dockerized environment/Locally  for consistency and portability.
 
 ## Features
 - Modern React.js setup using Node.js.
@@ -13,11 +13,13 @@ Before you begin, ensure you have the following installed:
 - Docker
 
 ## Project Structure
+```
 /app
   ├── src/                
   ├── public/             
   ├── package.json        
-  └── Dockerfile 
+  └── Dockerfile
+```
 
 
 ## Installation
