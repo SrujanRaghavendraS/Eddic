@@ -1,6 +1,6 @@
 # DICOM Editor
 
-A React.js-based project for editing and managing DICOM files. This project is designed to run in a Dockerized environment for consistency and portability.
+A React.js-based project for editing and managing DICOM files. This project is designed to run in a Dockerized environment/Locally  for consistency and portability.
 
 ## Features
 - Modern React.js setup using Node.js.
@@ -13,11 +13,13 @@ Before you begin, ensure you have the following installed:
 - Docker
 
 ## Project Structure
+```
 /app
   ├── src/                
   ├── public/             
   ├── package.json        
-  └── Dockerfile 
+  └── Dockerfile
+```
 
 
 ## Installation
@@ -29,11 +31,11 @@ cd dicomeditor
 ```
 
 ### Install the dependencies
-Use the below command to Install the required dependencies
+Use the command to Install the required dependencies 
 `npm install`
 
 ### Start the server
-Use the below command after Installing all the dependencies 
+Use the command after Installing all the dependencies 
 `npm start`
 
 ### Use the service
@@ -84,6 +86,6 @@ Once you select some file You can view the edit Panel as below
 
 ![alt text](assets/dcmedit.png)
 
-Lastly The profile Section to contact me 
+At Last The profile Section to contact me 
 
 ![alt text](assets/profile.png)
