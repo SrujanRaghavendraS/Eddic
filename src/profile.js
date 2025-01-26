@@ -30,7 +30,7 @@ const ProfilePage = () => {
 
               <div className="detail-item">
                 <Phone size={24} color="#000" />
-                <span className="detail-text">+91 9110415398</span>
+                <span className="detail-text">(+91)9110415398</span>
               </div>
 
               <div className="detail-item">
