@@ -29,11 +29,11 @@ cd dicomeditor
 ```
 
 ### Install the dependencies
-Use the below command to Install the required dependencies
+Use the command to Install the required dependencies 
 `npm install`
 
 ### Start the server
-Use the below command after Installing all the dependencies 
+Use the command after Installing all the dependencies 
 `npm start`
 
 ### Use the service
@@ -84,6 +84,6 @@ Once you select some file You can view the edit Panel as below
 
 ![alt text](assets/dcmedit.png)
 
-Lastly The profile Section to contact me 
+At Last The profile Section to contact me 
 
 ![alt text](assets/profile.png)
